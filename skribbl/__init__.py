@@ -1,0 +1,1 @@
+from .autojoin import run
