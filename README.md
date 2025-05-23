@@ -7,8 +7,15 @@ Skribbl AutoJoin is a Python package that connects to Skribbl.io, generates a ga
 ## Installation
 
 To install the package, use:
-
-
+```
+pip install git+https://github.com/devvratmiglani/Skribbl-Public.git 
+```
+or
+```
+git clone https://github.com/devvratmiglani/Skribbl-Public.git
+cd Skribbl-Public
+pip install .
+```
 ### Requirements
 
 - Python 3.7 or higher
