@@ -33,11 +33,21 @@ or make a shortcut on desktop for instant launch:
 skribbl-public --shortcut
 ```
 
+to search public lobby with available capacity
+```
+skribbl-public --space_required 3
+```
+or 
+```
+skribbl-public -r 3
+```
+
 This will:
 - Connect to Skribbl.io's public server
 - Generate a unique public game session
 - Copies the game link to your clipboard
 - Open the game in your default browser
+- Can search lobbies required capacity
 
 If the browser does not open, you can manually paste the link from your clipboard.
 
@@ -56,7 +66,7 @@ If the browser does not open, you can manually paste the link from your clipboar
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the GNU GENERAL PUBLIC LICENSE Version 3 License.
 
 ## Contact
 
