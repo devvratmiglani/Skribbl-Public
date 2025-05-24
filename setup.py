@@ -9,7 +9,7 @@ setup(
         "pyperclip",
         "argparse",
         "websockets==12.0",
-        "clorama"
+        "colorama"
     ],
     entry_points={
         "console_scripts": [
