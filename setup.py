@@ -20,7 +20,7 @@ setup(
     description="A package to generate public session url for Skribbl.io game",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/devvratmiglani/SkribblePublicRoomLink",
+    url="https://github.com/devvratmiglani/Skribbl-Public",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
