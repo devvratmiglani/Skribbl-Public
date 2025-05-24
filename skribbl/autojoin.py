@@ -107,7 +107,7 @@ async def connect_space():
 def run():
     parser = argparse.ArgumentParser(description="Shortcut Maker Argument Handler")
     parser.add_argument("--shortcut", action="store_true", help="Makes desktop shortcut for skribbl-public for windows")
-    parser.add_argument("--space_required",'-r', help="Space required int the lobby, enter 2 to 7")
+    parser.add_argument("--space_required",'-r', help="if you are 3 friends set 3, enter 2 to 7")
     
     args = parser.parse_args()
     
