@@ -126,7 +126,7 @@ def run():
             
         except Exception as e:
             print(f"❌ Failed to create shortcut: {e}")
-    elif int(args.space_required)>=2 and int(args.space_required)<=7:
+    if int(args.space_required)>=2 and int(args.space_required)<=7:
         while True:
             users, link = asyncio.run(connect_space())
             print(Fore.GREEN+f"Link: {link}")
@@ -136,7 +136,7 @@ def run():
             print('\n')
             
             if 9-len(users) >= int(args.space_required):
-                print(Fore.GREEN+f"Users: {Fore.YELLOW}{len(users)} {Fore.WHITE}:--> copied to clipboard: {Fore.CYAN}{link}")
+                print(Fore.GREEN+f"✅ Users: {Fore.YELLOW}{len(users)} {Fore.WHITE}:--> copied to clipboard: {Fore.CYAN}{link}")
                 pyperclip.copy(link)
                 webbrowser.open(link)
                 break
