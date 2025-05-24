@@ -2,3 +2,4 @@ websockets
 pyperclip
 argparse
 websockets==12.0
+colorama
