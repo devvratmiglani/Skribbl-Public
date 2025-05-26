@@ -126,7 +126,7 @@ def run():
             
         except Exception as e:
             print(f"❌ Failed to create shortcut: {e}")
-    if int(args.space_required)>=2 and int(args.space_required)<=7:
+    if args.space_required and int(args.space_required)>=2 and int(args.space_required)<=7:
         while True:
             users, link = asyncio.run(connect_space())
             print(Fore.GREEN+f"Link: {link}")
