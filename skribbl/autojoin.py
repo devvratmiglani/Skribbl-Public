@@ -21,17 +21,17 @@ async def connect():
     ws = None
     try:
         ws = await websockets.connect(url, extra_headers=headers)
-        print("Initialized WebSocket connection...")
+        print(Fore.GREEN+"[+] Initialized WebSocket connection...")
 
         await ws.send("40")
-        print("Sent to server...")
+        print(Fore.WHITE+"[+] Sent to server...")
 
         first_response = await ws.recv()
-        print(f"Server Responded...")
+        print(Fore.WHITE+f"[+] Server Responded...")
 
         login_payload = '42["login",{"join":"","create":0,"name":"","lang":"0","avatar":[15,54,42,-1]}]'
         await ws.send(login_payload)
-        print(f"Sent Login...")
+        print(Fore.WHITE+f"[+] Sent Login...")
 
         message = await ws.recv()
         message = await ws.recv()  # Here we get ID
@@ -41,19 +41,19 @@ async def connect():
             session_id = data[1]['data']['id']
             users = data[1]['data']['users']
             link = f"https://skribbl.io/?{session_id}"
-            print(f"Copied to clipboard: {link}")
+            print(f"[+] Copied to clipboard: {link}")
             pyperclip.copy(link)
             webbrowser.open(link)
         except (json.JSONDecodeError, KeyError, TypeError) as e:
-            print(f"Error parsing response: {e}")
+            print(Fore.RED+f"[-] Error parsing response: {e}")
 
     except websockets.exceptions.WebSocketException as e:
-        print(f"WebSocket error: {e}")
+        print(Fore.RED+f"[-] WebSocket error: {e}")
 
     finally:
         if ws:
             await ws.close()
-            print("WebSocket connection closed.")
+            print(Fore.WHITE+"[+] WebSocket connection closed.")
 
 #when you want to find space for friends too
 async def connect_space():
@@ -67,17 +67,17 @@ async def connect_space():
     ws = None
     try:
         ws = await websockets.connect(url, extra_headers=headers)
-        print("Initialized WebSocket connection...")
+        print(Fore.GREEN+"[+] Initialized WebSocket connection...")
 
         await ws.send("40")
-        print(Fore.WHITE+"Sent to server...")
+        print(Fore.WHITE+"[+] Sent to server...")
 
         first_response = await ws.recv()
-        print(Fore.WHITE+f"Server Responded...")
+        print(Fore.WHITE+f"[+] Server Responded...")
 
         login_payload = '42["login",{"join":"","create":0,"name":"","lang":"0","avatar":[15,54,42,-1]}]'
         await ws.send(login_payload)
-        print(Fore.WHITE+f"Sent Login...")
+        print(Fore.WHITE+f"[+] Sent Login...")
 
         message = await ws.recv()
         message = await ws.recv()  # Here we get ID
@@ -93,15 +93,15 @@ async def connect_space():
     #         webbrowser.open(link)
     
         except (json.JSONDecodeError, KeyError, TypeError) as e:
-            print(Fore.RED+f"Error parsing response: {e}")
+            print(Fore.RED+f"[-] Error parsing response: {e}")
 
     except websockets.exceptions.WebSocketException as e:
-        print(Fore.RED+f"WebSocket error: {e}")
+        print(Fore.RED+f"[-] WebSocket error: {e}")
 
     finally:
         if ws:
             await ws.close()
-            print(Fore.WHITE+"WebSocket connection closed.")
+            print(Fore.WHITE+"[+] WebSocket connection closed.")
     return users,link 
 
 def run():
@@ -140,6 +140,7 @@ def run():
                 pyperclip.copy(link)
                 webbrowser.open(link)
                 break
+            print(Fore.RED+"[x] Trying again!"+Fore.WHITE)
             time.sleep(1)
     else:
         asyncio.run(connect())
